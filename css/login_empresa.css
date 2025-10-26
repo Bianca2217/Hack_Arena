@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url(http://localhost/hack_arena/img/login.png) no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color:transparent;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 350px;
+}
+
+h1 {
+  color: whitesmoke;
+  font-size: 28px;
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+  text-align: center;
+}
+
+button {
+  width: 60%;
+  padding: 10px;
+  background: #003366;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+  margin:auto;
+}
+
+button:hover {
+  background: #004aaa;
+}
+
+
+button.btn-cadastro {
+  background: #003366;
+  position: relative;
+  top: 17ch;
+  color: white;
+  text-decoration: none;
+}
+
+.textinho{
+  font-size: 20px;
+  color: white;
+  position: relative;
+  top: 13ch;
+}
+
+button.btn-cadastro:hover {
+  background: #004aaa;
+}
+
+@media (max-width: 480px) {
+  .row {
+    flex-direction: column;
+  }
+}
+.cadastro-btn{
+  text-decoration: none;
+  color: white;
+}
+.btn-voltar {
+  background: #003366;
+  position: relative;
+  left: 40vw;
+  top: 18ch;
+}
+
+.voltar {
+  text-decoration: none;
+  color: white;
+}
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+  max-width: 500px;  /* Limita largura para caber no container */
+  margin: 10px auto;  /* Centraliza */
+  display: flex;
+}
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+.alert a {
+  color: #0d6efd;  /* Azul para links */
+  text-decoration: underline;
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"> <!-- Define codificação para suportar acentuação -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Torna responsivo em dispositivos móveis -->
+    <title>CyberLab - Laboratório de Segurança</title>
+    <link rel="stylesheet" href="../css/simulador.css"> <!-- Arquivo CSS externo para estilos -->
+</head>
+<body>
+    <div class="container">
+
+        <!-- Cabeçalho: título do laboratório e descrição curta -->
+        <header class="header">
+            <h1>🔒 CyberLab - Laboratório de Segurança</h1>
+            <p>Ambiente Educacional para Aprendizado de Segurança Cibernética</p>
+        </header>
+
+        <!-- Aviso educacional: sempre deixar claro que é apenas para fins didáticos -->
+        <div class="warning">
+            <h3>⚠️ AVISO EDUCACIONAL</h3>
+            <p>
+                Este é um ambiente controlado para fins educacionais.
+                Todas as vulnerabilidades são simuladas e não representam riscos reais.
+            </p>
+            <!-- Dica para explicar: enfatizar ética e legalidade — apenas testar em ambientes controlados -->
+        </div>
+
+        <!-- Botões de aba (troca de conteúdo sem recarregar) -->
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="showTab('sql-injection')">SQL Injection</button>
+            <button class="tab-button" onclick="showTab('database')">Banco de Dados</button>
+        </div>
+
+        <!-- Aba SQL Injection:
+             - Contém exemplos de payloads (para demonstração)
+             - Dois formulários: um "vulnerável" (para mostrar como a injeção funciona)
+               e outro "seguro" (para demonstrar proteção).
+             OBS: Remover exemplos ou tornar inacessível em ambiente público/produção. -->
+        <div id="sql-injection" class="tab-content active">
+            <div class="lab-section">
+                <h2>🎯 Laboratório de SQL Injection</h2>
+                
+                <!-- Exemplos de payloads (apenas para demonstração educativa) -->
+                <div class="payload-examples">
+                    <h4>📋 Payloads para Testar:</h4>
+                    <p><strong>Básico:</strong> <code>' OR '1'='1</code></p>
+                    <p><strong>Union:</strong> <code>' UNION SELECT username, password FROM users--</code></p>
+                    <p><strong>Bypass:</strong> <code>admin'--</code></p>
+                    <p><strong>Dump:</strong> <code>' OR 1=1--</code></p>
+                    <!-- Ao explicar: diga que são exemplos simples para aprender como ataques funcionam e por que proteger -->
+                </div>
+
+                <!-- Formulário vulnerável:
+                     - Usado para demonstrar comportamento de sistemas sem validação/parametrização
+                     - A lógica real de "vulnerabilidade" deve estar no JS/servidor de demonstração, nunca em produção -->
+                <div class="vulnerable-form">
+                    <h3>🚨 Sistema Vulnerável (Para Teste)</h3>
+                    <!-- onsubmit chama função JS que simula o efeito de uma query vulnerável -->
+                    <form onsubmit="vulnerableLogin(event)">
+                        <label for="vuln-user">Usuário:</label>
+                        <input type="text" id="vuln-user" placeholder="Digite o usuário">
+                        <label for="vuln-pass">Senha:</label>
+                        <input type="password" id="vuln-pass" placeholder="Digite a senha">
+                        <button type="submit">Login Vulnerável</button>
+                    </form>
+                    <div class="step-indicator" id="vuln-steps"></div> <!-- Local para mostrar passos/saídas -->
+                </div>
+
+                <!-- Formulário seguro:
+                     - Serve como comparação para mostrar técnicas de proteção (ex.: parametrização, hashing)
+                     - A função secureLogin deve demonstrar sanitização/uso de prepared statements -->
+                <div class="secure-form">
+                    <h3>✅ Sistema Seguro (Comparação)</h3>
+                    <form onsubmit="secureLogin(event)">
+                        <label for="secure-user">Usuário:</label>
+                        <input type="text" id="secure-user" placeholder="Digite o usuário">
+                        <label for="secure-pass">Senha:</label>
+                        <input type="password" id="secure-pass" placeholder="Digite a senha">
+                        <button type="submit">Login Seguro</button>
+                    </form>
+                    <div class="step-indicator" id="secure-steps"></div> <!-- Exibe diferenças das proteções -->
+                </div>
+
+                <!-- Área onde os resultados da simulação aparecem (mensagens, erros, sucesso) -->
+                <div class="result-display" id="login-results"></div>
+
+                <!-- Área de logs: pode mostrar a "query" gerada, etapas do ataque e mitigação (apenas educativo) -->
+                <div class="log-area" id="sql-logs"></div>
+            </div>
+        </div>
+
+        <!-- Aba Banco de Dados: mostra uma estrutura de exemplo para usar nas demonstrações -->
+        <div id="database" class="tab-content">
+            <div class="lab-section">
+                <h2>🗄️ Estrutura do Banco de Dados</h2>
+                
+                <h3>Tabela: users</h3>
+                <!-- Tabela de exemplo — útil para mostrar o que pode ser exposto por uma injeção -->
+                <table class="database-table">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>username</th>
+                            <th>password</th>
+                            <th>role</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-table">
+                        <tr><td>1</td><td>admin</td><td>admin123</td><td>administrator</td></tr>
+                        <tr><td>2</td><td>user1</td><td>password1</td><td>user</td></tr>
+                        <tr><td>3</td><td>guest</td><td>guest123</td><td>guest</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Tabela: secrets</h3>
+                <table class="database-table">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>secret_data</th>
+                            <th>access_level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Dados confidenciais do sistema</td><td>admin</td></tr>
+                        <tr><td>2</td><td>Informações de usuários</td><td>user</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script externo com a lógica das simulações (mostrar/ocultar abas, simular queries, logs, validações) -->
+    <script src="../js/simulador.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url(http://localhost/hack_arena/img/login.png) no-repeat center center/cover; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+ 
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 420px;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, select {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+}
+
+.linha {
+  display: flex;
+  gap: 10px;
+  width: 105%;
+}
+
+select {
+  cursor: pointer;
+}
+
+
+button {
+  margin:auto;
+  padding: 10px;
+  background: #003366;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+  width: 300px;
+}
+
+button:hover {
+  background: #004aaa;
+}
+
+
+@media (max-width: 480px) {
+  .row {
+    flex-direction: column;
+  }
+}
+.alert {
+         padding: 15px;
+         margin-bottom: 20px;
+         border: 1px solid transparent;
+         border-radius: 4px;
+         text-align: center;
+         font-weight: bold;
+         max-width: 500px;  /* Limita largura para caber no container */
+         margin: 10px auto;  /* Centraliza */
+       }
+       .alert-success {
+         color: #155724;
+         background-color: #d4edda;
+         border-color: #c3e6cb;
+       }
+       .alert-danger {
+         color: #721c24;
+         background-color: #f8d7da;
+         border-color: #f5c6cb;
+       }
+       .alert a {
+         color: #0d6efd;  /* Azul para links */
+         text-decoration: underline;
+       }
+       .btn-voltar {
+  background: #003366;
+  position: relative;
+  left: 38vw;
+  top: 10ch;
+}
+
+.voltar {
+  text-decoration: none;
+  color: white;
+}

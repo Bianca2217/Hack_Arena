@@ -1,0 +1,111 @@
+body {
+    background: linear-gradient(135deg, #0a1128, #001f3f);
+    color: #d6e6ff;
+    font-family: "Consolas", "Courier New", monospace;
+    text-align: center;
+    padding: 40px;
+}
+
+.container {
+    background: rgba(10, 20, 40, 0.95);
+    border: 1.5px solid #3aa6f2;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 0 20px rgba(30, 100, 180, 0.3);
+}
+
+.success-icon {
+    font-size: 4em;
+    color: #3aa6f2;
+    margin-bottom: 15px;
+}
+
+h1 {
+    color: #5eb8ff;
+    text-shadow: 0 0 6px rgba(90, 170, 255, 0.5);
+}
+
+.welcome-message {
+    font-size: 1.2em;
+    margin: 15px 0;
+}
+
+.system-name {
+    color: #7cc3ff;
+    font-weight: bold;
+}
+
+.cyber-info {
+    margin-top: 25px;
+    text-align: left;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.info-item {
+    background: rgba(58, 166, 242, 0.08);
+    border: 1px solid rgba(58, 166, 242, 0.3);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #7cc3ff;
+}
+
+.info-value {
+    font-family: "Consolas", monospace;
+}
+
+.btn-group {
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    margin: 8px;
+    padding: 10px 20px;
+    border: 1px solid #5eb8ff;
+    color: #5eb8ff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: #5eb8ff;
+    color: #0a1128;
+    box-shadow: 0 0 10px rgba(94, 184, 255, 0.5);
+}
+
+.countdown {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #7cc3ff;
+}
+
+.terminal {
+    background: rgba(58, 166, 242, 0.05);
+    border-radius: 8px;
+    padding: 10px;
+    font-family: monospace;
+    color: #9fd4ff;
+    margin-top: 20px;
+    border: 1px solid rgba(90, 150, 255, 0.2);
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
